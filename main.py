@@ -15,15 +15,15 @@
 #or, Sorry, you did not hit your protein goal for today. Don't give up though, try adding healthier choices e.g. chicken, greek yogurt
 
 
-# we need a list that 
+# we need a list that takes the calorie goal
+# we should p
 
 food_diary = []
 
 def goal_setter():
     print("Select which of the following nutrition goals you would like to achieve today")
     print("1. Calories")
-    print("2. Macronutrients")
-    print("3. Exit Program")
+    print("2. Exit Program")
 
     while True:
         try:
@@ -31,8 +31,6 @@ def goal_setter():
             if goal == 1:
                 calories()
             elif goal == 2:
-                macronutrients()
-            elif goal == 3:
                 print("Exiting program. Goodbye! ")
                 break
         except ValueError:
