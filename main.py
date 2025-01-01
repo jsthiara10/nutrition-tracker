@@ -18,7 +18,7 @@
 # we need a list that takes the calorie goal
 # we should p
 
-food_diary = []
+calories = 0
 
 def goal_setter():
     print("Select which of the following nutrition goals you would like to achieve today")
@@ -29,7 +29,7 @@ def goal_setter():
         try:
             goal = int(input("Please enter the number of your choice e.g. 1: "))
             if goal == 1:
-                calories()
+                calorie_goal()
             elif goal == 2:
                 print("Exiting program. Goodbye! ")
                 break
@@ -38,23 +38,35 @@ def goal_setter():
     
         break
 
-def calories():
+def calorie_goal():
+    global calories
     while True:
         try:
-            calories = goal = float(input("Please enter your calorie goal for today e.g. 2000"))
-            if calories <0:
+            goal= float(input("Please enter your calorie goal for today e.g. 2000: "))
+            if goal <0:
                 print("Calorie goal cannot be less than 0 Calories")
                 continue
-            elif calories >=0:
-                print(f"You have entered {calories} as your daily calorie goal") # enter an option here to ask if they are sure/go back and edit calorie goal
+            elif goal >=0:
+                print(f"You have entered {goal} as your daily calorie goal") # enter an option here to ask if they are sure/go back and edit calorie goal
                 meals()
         except ValueError:
             print("You must enter a positive number e.g. 10 or 10.5")
 
-# def calorie_meals():
-#     while True:
-#         try:
-#             calorie_meal_1 = goal = float(input("Please enter calories in your first meal"))
+def meals():
+    global calories
+    while True:
+        try:
+            meal = goal = float(input("Please enter calories in your first meal"))
+            if meal < 0:
+                print("Meal must have at least 0 calories")
+                continue
+            elif meal > 0:
+                print(f"You have entered {meal} calories for your first meal")
+                calories += meal
+                print(f"You have consumed {calories} calories so far today")
+        except ValueError:
+            print("You must enter a number greater than 0 for calories")
+
 
 
 # def macronutrients():
