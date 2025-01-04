@@ -65,30 +65,31 @@ def meals():
     global calories
     while True:
         try:
-            meal = float(input("Please enter calories in your first meal: "))
+            meal = float(input("Please enter calories in your meal: "))
             if meal < 0:
                 print("Meal must have at least 0 calories")
                 continue
             elif meal > 0:
-                confirmation = input(f"You have entered {meal} as calories for your first meal. Are you sure? Please enter yes or no" ).strip().lower()
+                confirmation = input(f"You have entered {meal} as calories for your meal. Are you sure? Please enter yes or no" ).strip().lower()
+                # conditional within a conditional
                 if confirmation == "yes":
                     print(f"You have confirmed {meal} calories for your first meal")
                     calories += meal
-                print(f"You have consumed {calories} calories so far today")
-                # Now, we want to ask them do you wish to record another meal?
-                # If the answer is yes, then go ahead and ask them to record another meal
-                add_meal()
+                    print(f"You have consumed {calories} calories so far today")
+                else:
+                    print("Calories not recorded. Please re-enter calories for your meal e.g. 200")
+                    continue
+            # new conditional asking them if they wish to record another meal:
+                another_meal = input("Would you like to log another meal. Yes or No? ") # notice this is still under the elif meal > 0 condition. we only ask the user to log another meal if they have logged their first meal
+                if another_meal == "yes":
+                    continue
+                elif another_meal == "no":
+                    print("Thank you for logging your calories for today! ")
+                    break # exit this loop
+                else:
+                    print("Invalid input. Please enter yes or no")
         except ValueError:
             print("You must enter a number greater than 0 for calories")
-
-def add_meal():
-    print("test")
-
-    # while True:
-    #     protein = float(input("Please enter how many g of protein you would like to consume to day e.g. 150g"))
-    #     if protein <=0.0:
-    #         print("You must enter a valid number e.g. 10 or 0.5")
-
 
 
 def main():
