@@ -50,7 +50,7 @@ def calorie_goal():
                 confirmation = input(f"You have entered {goal} as your daily calories. Are you sure? Yes or No? ").strip().lower()
                 if confirmation == "yes":
                     print(f"Your calorie goal is set to {goal} calories. ")
-                    meals()
+                    meals(goal)
                     return goal # ends the execution of the function
                 elif confirmation == "no":
                     print("Please enter your updated calorie goal. ")
@@ -61,7 +61,7 @@ def calorie_goal():
             print("You must enter a positive number e.g. 10 or 10.5")
         break
 
-def meals():
+def meals(goal):
     global calories
     while True:
         try:
@@ -75,7 +75,8 @@ def meals():
                 if confirmation == "yes":
                     print(f"You have confirmed {meal} calories for your first meal")
                     calories += meal
-                    print(f"You have consumed {calories} calories so far today")
+                    remainder = goal - calories # variable which records remainder of daily calorie target
+                    print(f"You have consumed {calories} calories so far today. You have {remainder} calories left to consume today. ") # added remainder calories to this print statement
                 else:
                     print("Calories not recorded. Please re-enter calories for your meal e.g. 200")
                     continue
