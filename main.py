@@ -76,7 +76,8 @@ def meals(goal):
                     print(f"You have confirmed {meal} calories for your first meal")
                     calories += meal
                     remainder = goal - calories # variable which records remainder of daily calorie target
-                    print(f"You have consumed {calories} calories so far today. You have {remainder} calories left to consume today. ") # added remainder calories to this print statement
+                    percentage = (calories/goal) * 100
+                    print(f"You have consumed {calories} calories so far today. This is {percentage}% of your daily calorie goal. You have {remainder} calories left to consume today. ") # added remainder calories to this print statement
                 else:
                     print("Calories not recorded. Please re-enter calories for your meal e.g. 200")
                     continue
