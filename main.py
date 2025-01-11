@@ -14,9 +14,11 @@
 # If 'N' - Congratulations! You hit/exceeded your protein goal for today. Keep it up!
 #or, Sorry, you did not hit your protein goal for today. Don't give up though, try adding healthier choices e.g. chicken, greek yogurt
 
+#### POTENTIAL NEW FEATURES ####
 
-# we need a list that takes the calorie goal
-# we should p
+# What they had in their meal (string)
+# Meal name e.g. Breakfast; or based on loop, append it and make it something like Meal 1
+# 
 
 calories = 0
 
@@ -70,7 +72,7 @@ def meals(goal):
                 print("Meal must have at least 0 calories")
                 continue
             elif meal > 0:
-                confirmation = input(f"You have entered {meal} as calories for your meal. Are you sure? Please enter yes or no" ).strip().lower()
+                confirmation = input(f"You have entered {meal} as calories for your meal. Are you sure? Please enter Yes or No " ).strip().lower()
                 # conditional within a conditional
                 if confirmation == "yes":
                     print(f"You have confirmed {meal} calories for your first meal")
@@ -92,6 +94,11 @@ def meals(goal):
                     print("Invalid input. Please enter yes or no")
         except ValueError:
             print("You must enter a number greater than 0 for calories")
+
+# potentially add a new function here that tells them if they hit their goal or not
+# if they hit their goal, tell them well done
+# if not, tell them not to worry and give them recommendations to hit their goal
+# what if they exceeded their goal?
 
 
 def main():
